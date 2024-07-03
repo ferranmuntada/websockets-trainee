@@ -1,0 +1,23 @@
+<div *ngIf="!registered">
+  <h1>Register</h1>
+  <input [(ngModel)]="username" placeholder="Enter your username" />
+  <button (click)="register()">Register</button>
+</div>
+
+<div *ngIf="registered">
+  <h1>Chat App: {{ username }}</h1>
+  <div>
+    <input [(ngModel)]="recipient" placeholder="Recipient username" />
+  </div>
+  <div>
+    <ul>
+      <li *ngFor="let msg of messages">
+        <strong>{{ msg.sender }}:</strong> {{ msg.message }}
+      </li>
+    </ul>
+  </div>
+  <div>
+    <input [(ngModel)]="message" placeholder="Type your message" />
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>
